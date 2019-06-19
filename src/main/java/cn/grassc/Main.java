@@ -1,7 +1,7 @@
 package cn.grassc;
 
-import cn.grassc.simple.mybais.Configuration;
-import cn.grassc.simple.mybais.SqlSession;
+import cn.grassc.simple.mybatis.Configuration;
+import cn.grassc.simple.mybatis.SqlSession;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 
 import javax.sql.DataSource;
@@ -17,6 +17,7 @@ public class Main {
         DataSource dataSource = new PooledDataSource(driver, url, user, pwd);
         Configuration configuration = new Configuration(dataSource);
         configuration.addMapper(UserMapper.class);
+        configuration.addInterceptor(new UselessPlugin());
 
         // 获取session
         SqlSession session = new SqlSession(configuration);

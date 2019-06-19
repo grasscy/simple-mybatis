@@ -1,12 +1,12 @@
-package cn.grassc.simple.mybais;
+package cn.grassc.simple.mybatis;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class Executor {
-    public <T> T query(Configuration configuration, String sql, Object[] args, Class<T> resultType) throws Exception {
+public interface Executor {
+    default <T> T query(Configuration configuration, String sql, Object[] args, Class<T> resultType) throws Exception {
         T result = null;
         try (Connection connection = configuration.getDataSource().getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {

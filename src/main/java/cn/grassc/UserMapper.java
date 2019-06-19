@@ -1,6 +1,6 @@
 package cn.grassc;
 
-import cn.grassc.simple.mybais.Select;
+import cn.grassc.simple.mybatis.Select;
 
 public interface UserMapper {
     @Select("select count(*) from user")

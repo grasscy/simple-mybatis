@@ -1,4 +1,4 @@
-package cn.grassc.simple.mybais;
+package cn.grassc.simple.mybatis;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package cn.grassc.simple.mybais;
+package cn.grassc.simple.mybatis;
 
 import lombok.Getter;
 
@@ -7,12 +7,12 @@ import java.lang.reflect.Method;
 
 @Getter
 public class SqlSession {
-    private Configuration configuration;
-    private Executor executor;
+    private final Configuration configuration;
+    private final Executor executor;
 
     public SqlSession(Configuration configuration) {
         this.configuration = configuration;
-        this.executor = new Executor();
+        this.executor = (Executor) configuration.newExecutor(new Executor() {});
     }
 
     public <T> T getMapper(Class<T> type) {
